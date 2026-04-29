@@ -12,7 +12,7 @@ export interface TourStep {
 
 export const TOUR_STEPS: TourStep[] = [
   {
-    title: "¡Bienvenido a Solvify Burger! 👋",
+    title: "¡Bienvenido a Dishflow! 👋",
     description: "Este es el sistema de operaciones de tu hamburguesería. En menos de 2 minutos te mostramos cómo funciona cada sección.",
     route: "/",
     position: "bottom-right",

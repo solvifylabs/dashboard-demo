@@ -64,10 +64,10 @@ export function AppSidebar({ role }: { role?: "admin" | "operator" }) {
       <SidebarHeader className="pb-0">
         <div className="flex items-center gap-3 px-1 py-2">
           <Image
-            src="/Solvify.webp"
+            src="/dishflow.png"
             alt="Logo"
-            width={48}
-            height={48}
+            width={64}
+            height={64}
             className="rounded-full bg-black shrink-0"
           />
           <div
@@ -78,11 +78,9 @@ export function AppSidebar({ role }: { role?: "admin" | "operator" }) {
             "
           >
             <span className={cn(baloo.className, "text-lg font-bold tracking-wide")}>
-              Solvify
+              Dishflow
             </span>
-            <span className={cn(pacifico.className, "text-base text-solvify -mt-1")}>
-              Burger 🍔
-            </span>
+     
           </div>
         </div>
         <div className="group-data-[collapsible=icon]:hidden">

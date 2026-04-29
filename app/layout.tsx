@@ -8,7 +8,7 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Solvify Burger - Sistema de Operaciones",
+  title: "Dishflow - Sistema de Operaciones",
   description: "Sistema de operaciones para restaurante de hamburguesas",
   generator: "v0.app",
   icons: {
