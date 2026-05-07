@@ -2,7 +2,6 @@
 
 import type React from "react"
 import { SidebarInset, useSidebar } from "@/components/ui/sidebar"
-import { motion } from "framer-motion"
 import { useRef } from "react"
 import { AppSidebar } from "./sidebar"
 
@@ -14,34 +13,31 @@ export function SidebarLayout({
   role?: "admin" | "operator"
 }>) {
   const { setOpen, isMobile } = useSidebar()
-  const timeoutRef = useRef<NodeJS.Timeout>()
+  const timeoutRef = useRef<NodeJS.Timeout | undefined>(undefined)
 
-  const handleHoverStart = () => {
-    if (!isMobile && window.matchMedia("(hover: hover)").matches) {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current)
-      setOpen(true)
-    }
+  const canHover = () =>
+    !isMobile && window.matchMedia("(hover: hover)").matches
+
+  const handleMouseOver = () => {
+    if (!canHover()) return
+    if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    setOpen(true)
   }
 
-  const handleHoverEnd = () => {
-    if (!isMobile && window.matchMedia("(hover: hover)").matches) {
-      timeoutRef.current = setTimeout(() => {
-        setOpen(false)
-      }, 250)
-    }
+  const handleMouseOut = (e: React.MouseEvent) => {
+    if (!canHover()) return
+    // Only close when the cursor is truly leaving the entire sidebar tree
+    // (includes the fixed container which is a DOM descendant but outside the box)
+    const related = e.relatedTarget as Node | null
+    if (related && e.currentTarget.contains(related)) return
+    timeoutRef.current = setTimeout(() => setOpen(false), 250)
   }
 
   return (
     <>
-      <motion.div
-        onHoverStart={handleHoverStart}
-        onHoverEnd={handleHoverEnd}
-        initial={false}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.1, ease: "easeInOut" }}
-      >
+      <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
         <AppSidebar role={role} />
-      </motion.div>
+      </div>
       <SidebarInset>
         <main className="flex flex-1 min-h-0 flex-col p-4 md:p-2 container mx-auto">
           {children}

@@ -6,6 +6,7 @@ import { SidebarProvider } from "@/components/ui/sidebar"
 import { Toaster } from "sonner"
 import { DemoPrintModal } from "@/components/demo/print-modal"
 import { DemoTourOverlay } from "@/components/demo/tour-overlay"
+import { AuthGuard } from "@/components/demo/auth-guard"
 
 export default function DashboardLayout({
   children,
@@ -17,12 +18,14 @@ export default function DashboardLayout({
   return (
     <ThemeProvider>
       <QueryProvider>
-        <SidebarProvider defaultOpen={false}>
-          <SidebarLayout role={role}>{children}</SidebarLayout>
-          <Toaster richColors position="top-right" />
-          <DemoPrintModal />
-          <DemoTourOverlay />
-        </SidebarProvider>
+        <AuthGuard>
+          <SidebarProvider defaultOpen={false}>
+            <SidebarLayout role={role}>{children}</SidebarLayout>
+            <Toaster richColors position="top-right" />
+            <DemoPrintModal />
+            <DemoTourOverlay />
+          </SidebarProvider>
+        </AuthGuard>
       </QueryProvider>
     </ThemeProvider>
   )
