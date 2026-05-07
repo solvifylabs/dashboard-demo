@@ -80,7 +80,7 @@ export default function MenuPage() {
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
 
-const FALLBACK_IMAGE = '/Solvify.webp'
+const FALLBACK_IMAGE = '/solvify-icon.jpg'
 
   /* ================= HANDLERS ================= */
 
@@ -237,7 +237,7 @@ const FALLBACK_IMAGE = '/Solvify.webp'
     <section className="flex h-screen flex-col">
       <Header title="Menú" subtitle="Administra las hamburguesas del menú" />
 
-      <div className="flex-1 overflow-auto p-6 md:py-6 md:px-0">
+      <div className="flex-1 overflow-auto py-6 md:py-6 md:px-0">
         {/* Header */}
         <div className="mb-6 flex items-center justify-between">
           <div>

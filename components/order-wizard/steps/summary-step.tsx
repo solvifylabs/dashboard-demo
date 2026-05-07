@@ -70,7 +70,7 @@ interface SummaryStepProps {
           quantity: number;
         }>;
       }>;
-      selectedExtra: { id: string; name: string; price: number } | null;
+      selectedExtras: Array<{ id: string; name: string; price: number }>;
     }>;
   }>;
 
@@ -622,14 +622,19 @@ export function SummaryStep({
                         );
                       })}
 
-                      {slot.selectedExtra && (
-                        <div className="ml-4">
+                      {slot.selectedExtras?.map((extra) => (
+                        <div key={extra.id} className="ml-4">
                           <p className="text-sm font-medium text-muted-foreground">
-                            • {slot.slotType === "drink" ? "Bebida: " : ""}
-                            {slot.selectedExtra.name}
+                            •{" "}
+                            {slot.slotType === "drink"
+                              ? "Bebida: "
+                              : slot.slotType === "side"
+                                ? "Acomp.: "
+                                : ""}
+                            {extra.name}
                           </p>
                         </div>
-                      )}
+                      ))}
                     </div>
                   ))}
                 </div>

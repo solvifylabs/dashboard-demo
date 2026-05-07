@@ -142,7 +142,7 @@ export default function ExtrasPage() {
   /* ---------------- UI ---------------- */
 
   return (
-    <div className="flex h-screen flex-col">
+    <div className="flex flex-1 flex-col min-h-0">
       <Header
         title="Extras"
         subtitle="Administra extras, bebidas, papas y acompañamientos"
@@ -150,34 +150,36 @@ export default function ExtrasPage() {
 
       {/* FILTER BAR */}
       <div className="sticky bg-background top-0 z-10 py-3">
-        <div className="flex items-center justify-between gap-4">
-          <Tabs
-            value={activeTab}
-            onValueChange={(v) => {
-              setActiveTab(v as ExtraCategory | "all");
-              setPage(1);
-            }}
-          >
-            <TabsList className="rounded-full p-1">
-              <TabsTrigger value="all" className="rounded-full px-4 text-sm">
-                Todos
-              </TabsTrigger>
-              <TabsTrigger value="extra" className="rounded-full px-4 text-sm">
-                Extras
-              </TabsTrigger>
-              <TabsTrigger value="drink" className="rounded-full px-4 text-sm">
-                Bebidas
-              </TabsTrigger>
-              <TabsTrigger value="fries" className="rounded-full px-4 text-sm">
-                Papas
-              </TabsTrigger>
-              <TabsTrigger value="sides" className="rounded-full px-4 text-sm">
-                Acompañamientos
-              </TabsTrigger>
-            </TabsList>
-          </Tabs>
+        <div className="flex items-center gap-4">
+          <div className="flex-1 overflow-x-auto min-w-0 scrollbar-none">
+            <Tabs
+              value={activeTab}
+              onValueChange={(v) => {
+                setActiveTab(v as ExtraCategory | "all");
+                setPage(1);
+              }}
+            >
+              <TabsList className="rounded-full p-1 w-max">
+                <TabsTrigger value="all" className="rounded-full px-4 text-sm">
+                  Todos
+                </TabsTrigger>
+                <TabsTrigger value="extra" className="rounded-full px-4 text-sm">
+                  Extras
+                </TabsTrigger>
+                <TabsTrigger value="drink" className="rounded-full px-4 text-sm">
+                  Bebidas
+                </TabsTrigger>
+                <TabsTrigger value="fries" className="rounded-full px-4 text-sm">
+                  Papas
+                </TabsTrigger>
+                <TabsTrigger value="sides" className="rounded-full px-4 text-sm">
+                  Acompañamientos
+                </TabsTrigger>
+              </TabsList>
+            </Tabs>
+          </div>
 
-          <Button onClick={() => handleOpenCreate()}>
+          <Button className="shrink-0" onClick={() => handleOpenCreate()}>
             <Plus className="mr-2 h-4 w-4" />
             Nuevo
           </Button>
@@ -219,7 +221,7 @@ export default function ExtrasPage() {
                       {extra.is_available ? "Activo" : "Inactivo"}
                     </Badge>
 
-                    <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition">
+                    <div className="flex gap-1 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition">
                       <Button
                         variant="ghost"
                         size="icon"

@@ -6,6 +6,7 @@ import { Plus, RefreshCw } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 import Image from "next/image";
 import { PrintServiceIndicator } from "../order-wizard/components/print-service";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 
 interface HeaderProps {
   title: string;
@@ -25,14 +26,17 @@ export function Header({
   extraActions,
 }: HeaderProps) {
   return (
-    <header className="flex h-auto items-center justify-between p-6 ios-glass rounded-md shrink-0 bg-card">
-      <div>
-        <h1 className="text-xl font-semibold text-foreground">{title}</h1>
-        {subtitle && (
-          <p className="text-sm text-muted-foreground">{subtitle}</p>
-        )}
-      </div>
+    <header className="flex flex-col gap-3 p-4 md:flex-row md:items-center md:justify-between md:p-6 ios-glass rounded-md shrink-0 bg-card">
       <div className="flex items-center gap-3">
+        <SidebarTrigger className="md:hidden" />
+        <div>
+          <h1 className="text-xl font-semibold text-foreground">{title}</h1>
+          {subtitle && (
+            <p className="hidden text-sm text-muted-foreground sm:block">{subtitle}</p>
+          )}
+        </div>
+      </div>
+      <div className="flex items-center gap-2 flex-wrap">
         <PrintServiceIndicator />
 
         {extraActions}

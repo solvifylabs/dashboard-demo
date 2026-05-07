@@ -8,7 +8,7 @@ interface SelectedComboSlot {
   maxQuantity: number;
   defaultMeatCount?: number;
   burgers: SelectedBurger[];
-  selectedExtra: { id: string; name: string; price: number } | null;
+  selectedExtras: Array<{ id: string; name: string; price: number }>;
 }
 
 interface SelectedCombo {
@@ -102,9 +102,7 @@ export class OrderDataTransformer {
             (burgerExtras + meatAdjustment + friesAdjustment) * burger.quantity;
         });
 
-        if (slot.selectedExtra && slot.selectedExtra.price > 0) {
-          comboSubtotal += slot.selectedExtra.price * c.quantity;
-        }
+        // Drink/side slots are included in the combo price — no extra charge
       });
 
       return {
@@ -138,13 +136,11 @@ export class OrderDataTransformer {
                 price: ext.extra.price,
               })),
             })),
-            selectedExtra: s.selectedExtra
-              ? {
-                  id: s.selectedExtra.id,
-                  name: s.selectedExtra.name,
-                  price: s.selectedExtra.price,
-                }
-              : null,
+            selectedExtras: (s.selectedExtras ?? []).map((e) => ({
+              id: e.id,
+              name: e.name,
+              price: e.price,
+            })),
           })),
         ),
         extras: [],

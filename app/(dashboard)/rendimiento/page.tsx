@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { Header } from "@/components/layout/header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -133,6 +134,7 @@ const RANK_CONFIG = [
 ];
 
 export default function AnalyticsPage() {
+  const isMobile = useIsMobile();
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [viewMode, setViewMode] = useState<ViewMode>("month");
   const [customRange, setCustomRange] = useState<{ from: Date; to: Date } | undefined>(undefined);
@@ -264,7 +266,7 @@ export default function AnalyticsPage() {
     : [];
 
   return (
-    <section className="flex h-screen flex-col">
+    <section className="flex flex-1 flex-col min-h-0">
       <Header title="Rendimiento" subtitle="Análisis de ventas" />
 
       <div className="flex-1 overflow-auto py-4">
@@ -320,7 +322,7 @@ export default function AnalyticsPage() {
                       setCalendarOpen(false);
                     }
                   }}
-                  numberOfMonths={2}
+                  numberOfMonths={isMobile ? 1 : 2}
                   disabled={{ after: new Date() }}
                 />
               </PopoverContent>
@@ -335,7 +337,7 @@ export default function AnalyticsPage() {
               >
                 <ChevronLeft className="h-4 w-4" />
               </Button>
-              <span className="min-w-52 text-center text-sm font-medium capitalize tabular-nums">
+              <span className="min-w-32 sm:min-w-52 text-center text-sm font-medium capitalize tabular-nums">
                 {periodLabel}
               </span>
               <Button
@@ -459,9 +461,10 @@ export default function AnalyticsPage() {
               {analyticsLoading || !analytics?.dailyData ? (
                 <Skeleton className="h-[300px]" />
               ) : (
+                <div className="h-[300px]">
                 <ChartContainer
                   config={ordersChartConfig}
-                  className="h-[300px] w-full"
+                  className="h-full w-full"
                 >
                   <AreaChart data={analytics.dailyData}>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} />
@@ -469,8 +472,10 @@ export default function AnalyticsPage() {
                       dataKey="day"
                       tickLine={false}
                       axisLine={false}
+                      interval={isMobile ? "preserveStartEnd" : undefined}
+                      tick={{ fontSize: isMobile ? 10 : 12 }}
                     />
-                    <YAxis tickLine={false} axisLine={false} />
+                    <YAxis tickLine={false} axisLine={false} hide={isMobile} />
                     <ChartTooltip
                       content={({ payload }) => {
                         if (!payload?.length) return null;
@@ -505,6 +510,7 @@ export default function AnalyticsPage() {
                     />
                   </AreaChart>
                 </ChartContainer>
+                </div>
               )}
             </CardContent>
           </Card>
@@ -517,9 +523,10 @@ export default function AnalyticsPage() {
               {analyticsLoading || !analytics?.dailyData ? (
                 <Skeleton className="h-[300px]" />
               ) : (
+                <div className="h-[300px]">
                 <ChartContainer
                   config={revenueChartConfig}
-                  className="h-[300px] w-full"
+                  className="h-full w-full"
                 >
                   <AreaChart data={analytics.dailyData}>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} />
@@ -527,11 +534,14 @@ export default function AnalyticsPage() {
                       dataKey="day"
                       tickLine={false}
                       axisLine={false}
+                      interval={isMobile ? "preserveStartEnd" : undefined}
+                      tick={{ fontSize: isMobile ? 10 : 12 }}
                     />
                     <YAxis
                       tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`}
                       tickLine={false}
                       axisLine={false}
+                      hide={isMobile}
                     />
                     <ChartTooltip
                       content={({ payload }) => {
@@ -567,6 +577,7 @@ export default function AnalyticsPage() {
                     />
                   </AreaChart>
                 </ChartContainer>
+                </div>
               )}
             </CardContent>
           </Card>
@@ -757,20 +768,22 @@ export default function AnalyticsPage() {
             {comparisonLoading || !monthlyComparison ? (
               <Skeleton className="h-75" />
             ) : (
+              <div className="h-75">
               <ChartContainer
                 config={comparisonChartConfig}
-                className="h-75 w-full"
+                className="h-full w-full"
               >
                 <BarChart data={monthlyComparison}>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                  <XAxis dataKey="month" tickLine={false} axisLine={false} />
-                  <YAxis yAxisId="left" tickLine={false} axisLine={false} />
+                  <XAxis dataKey="month" tickLine={false} axisLine={false} tick={{ fontSize: isMobile ? 10 : 12 }} />
+                  <YAxis yAxisId="left" tickLine={false} axisLine={false} hide={isMobile} />
                   <YAxis
                     yAxisId="right"
                     orientation="right"
                     tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`}
                     tickLine={false}
                     axisLine={false}
+                    hide={true}
                   />
                   <ChartTooltip
                     content={
@@ -797,6 +810,7 @@ export default function AnalyticsPage() {
                   />
                 </BarChart>
               </ChartContainer>
+              </div>
             )}
           </CardContent>
         </Card>

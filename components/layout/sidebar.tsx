@@ -40,13 +40,13 @@ const pacifico = Pacifico({
 
 const navigation = [
   { name: "Pedidos",      href: "/",          icon: LayoutDashboard, adminOnly: false, operatorBlocked: false },
-  { name: "Historial",   href: "/orders",     icon: ClipboardList,   adminOnly: false, operatorBlocked: false },
-  { name: "Rendimiento", href: "/analytics",  icon: BarChart3,       adminOnly: false, operatorBlocked: true  },
+  { name: "Historial",   href: "/historial",   icon: ClipboardList,   adminOnly: false, operatorBlocked: false },
+  { name: "Rendimiento", href: "/rendimiento", icon: BarChart3,       adminOnly: false, operatorBlocked: true  },
   { name: "Clientes",    href: "/clientes",   icon: User,            adminOnly: false, operatorBlocked: true  },
   { name: "Menú",        href: "/menu",       icon: UtensilsCrossed, adminOnly: false, operatorBlocked: false },
   { name: "Combos",      href: "/combos",     icon: Component,       adminOnly: false, operatorBlocked: false },
   { name: "Extras",      href: "/extras",     icon: Plus,            adminOnly: false, operatorBlocked: false },
-  { name: "Precios",     href: "/pricing",    icon: DollarSign,      adminOnly: false, operatorBlocked: true  },
+  { name: "Precios",     href: "/precios",     icon: DollarSign,      adminOnly: false, operatorBlocked: true  },
   { name: "Usuarios",    href: "/usuarios",   icon: Users,           adminOnly: true,  operatorBlocked: false },
 ]
 
@@ -64,7 +64,7 @@ export function AppSidebar({ role }: { role?: "admin" | "operator" }) {
       <SidebarHeader className="pb-0">
         <div className="flex items-center gap-3 px-1 py-2">
           <Image
-            src="/dishflow.png"
+            src="/solvify-icon.jpg"
             alt="Logo"
             width={64}
             height={64}

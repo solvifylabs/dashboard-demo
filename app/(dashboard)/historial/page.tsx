@@ -158,7 +158,7 @@ export default function OrdersHistoryPage() {
         subtitle="Revisa todos los pedidos"
       />
 
-      <div className="flex-1 overflow-auto p-6 md:px-0">
+      <div className="flex-1 overflow-auto py-6 md:px-0">
         <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <Select
