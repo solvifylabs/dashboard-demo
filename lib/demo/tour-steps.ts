@@ -34,7 +34,7 @@ export const TOUR_STEPS: TourStep[] = [
   {
     title: "Historial de pedidos",
     description: "Consultá todos los pedidos con filtros por fecha. Controlá el estado de pago, imprimí tickets y copiá el resumen de cada pedido para WhatsApp.",
-    route: "/orders",
+    route: "/historial",
     position: "bottom-right",
   },
   {
@@ -58,13 +58,13 @@ export const TOUR_STEPS: TourStep[] = [
   {
     title: "Rendimiento del negocio",
     description: "Analizá ingresos por período, identificá los productos más vendidos y controlá el rendimiento del negocio con gráficos interactivos.",
-    route: "/analytics",
+    route: "/rendimiento",
     position: "bottom-right",
   },
   {
     title: "Gestión de precios",
     description: "Actualizá los precios de hamburguesas y extras desde un panel centralizado. Los cambios se reflejan de inmediato en el wizard y en los nuevos pedidos.",
-    route: "/pricing",
+    route: "/precios",
     position: "bottom-right",
   },
   {
