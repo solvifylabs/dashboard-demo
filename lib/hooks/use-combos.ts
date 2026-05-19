@@ -69,6 +69,10 @@ export function useAllCombos() {
             (r) => r.rule_type === "no_fries",
           );
 
+          const allowedIdsRule = slot.combo_slots_rules.find(
+            (r) => r.rule_type === "allowed_ids",
+          );
+
           return {
             id: slot.id,
             combo_id: combo.id,
@@ -87,6 +91,9 @@ export function useAllCombos() {
                 ? JSON.parse(allowedMeatRule.rule_value)
                 : undefined,
               no_fries: noFriesRule?.rule_value === "true" ? true : undefined,
+              allowed_ids: allowedIdsRule
+                ? allowedIdsRule.rule_value.split(",").map((s) => s.trim())
+                : undefined,
             },
           };
         }),

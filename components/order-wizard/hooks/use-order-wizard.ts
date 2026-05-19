@@ -139,6 +139,7 @@ export function useOrderWizard({
         if (
           slot.slotType === "drink" ||
           slot.slotType === "side" ||
+          slot.slotType === "fries" ||
           slot.slotType === "nuggets"
         ) {
           return slot.selectedExtras.length >= slot.minQuantity;

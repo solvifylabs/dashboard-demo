@@ -3,7 +3,7 @@ import { SelectedSide } from "../hooks/use-side-selection";
 
 interface SelectedComboSlot {
   slotId: string;
-  slotType: "burger" | "drink" | "side" | "nuggets";
+  slotType: "burger" | "drink" | "side" | "fries" | "nuggets";
   maxQuantity: number;
   defaultMeatCount?: number;
   burgers: SelectedBurger[];

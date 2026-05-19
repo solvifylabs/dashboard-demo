@@ -20,10 +20,17 @@ interface CombosStepProps {
     quantity: number;
     slots: Array<{
       slotId: string;
-      slotType: "burger" | "drink" | "side";
+      slotType: "burger" | "drink" | "side" | "fries";
       maxQuantity: number;
       minQuantity: number;
       defaultMeatCount?: number;
+      rules: {
+        min_quantity: number;
+        max_quantity: number;
+        allowed_meat_count?: number[];
+        no_fries?: boolean;
+        allowed_ids?: string[];
+      };
       burgers: Array<{
         id: string;
         burger: Burger;
@@ -40,6 +47,7 @@ interface CombosStepProps {
 
   availableBurgers: Burger[];
   availableSides: Extra[];
+  availableFries: Extra[];
 
   getRemainingQuantity: (comboId: string, slotId: string) => number;
   canAddBurgerToSlot: (comboId: string, slotId: string, burger: Burger) => boolean;
@@ -72,6 +80,7 @@ export function CombosStep({
   selectedCombos,
   availableBurgers,
   availableSides,
+  availableFries,
   getRemainingQuantity,
   canAddBurgerToSlot,
   onAddBurgerToSlot,
@@ -242,7 +251,10 @@ export function CombosStep({
             }
 
             if (slot.slotType === "drink") {
-              const drinkExtras = extrasByCategory["drink"] || [];
+              const allDrinks = extrasByCategory["drink"] || [];
+              const drinkExtras = slot.rules?.allowed_ids
+                ? allDrinks.filter((e) => slot.rules.allowed_ids!.includes(e.id))
+                : allDrinks;
               return (
                 <Card key={slot.slotId}>
                   <CardContent className="p-4">
@@ -264,8 +276,35 @@ export function CombosStep({
               );
             }
 
+            if (slot.slotType === "fries") {
+              const friesExtras = slot.rules?.allowed_ids
+                ? availableFries.filter((e) => slot.rules.allowed_ids!.includes(e.id))
+                : availableFries;
+              return (
+                <Card key={slot.slotId}>
+                  <CardContent className="p-4">
+                    <ExtraSelector
+                      title="Elegir Papas"
+                      extras={friesExtras}
+                      selectedExtraIds={slot.selectedExtras.map((e) => e.id)}
+                      maxQuantity={slot.maxQuantity}
+                      onSelect={(extra) =>
+                        onSelectExtraForSlot(comboInstance.id, slot.slotId, extra)
+                      }
+                      onRemoveOne={(extra) =>
+                        onRemoveExtraFromSlot(comboInstance.id, slot.slotId, extra)
+                      }
+                      required={slot.minQuantity > 0}
+                    />
+                  </CardContent>
+                </Card>
+              );
+            }
+
             if (slot.slotType === "side") {
-              const sideExtras = availableSides;
+              const sideExtras = slot.rules?.allowed_ids
+                ? availableSides.filter((e) => slot.rules.allowed_ids!.includes(e.id))
+                : availableSides;
               return (
                 <Card key={slot.slotId}>
                   <CardContent className="p-4">

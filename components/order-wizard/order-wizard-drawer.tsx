@@ -76,6 +76,11 @@ export function OrderWizardDrawer({
     [extras],
   );
 
+  const availableFries = useMemo(
+    () => extras?.filter((e) => e.category === "fries" && e.is_available) ?? [],
+    [extras],
+  );
+
   const extrasByCategory = useMemo(() => {
     if (!extras) return {};
     return extras.reduce(
@@ -298,6 +303,7 @@ export function OrderWizardDrawer({
                   onRemoveCombo={wizard.combos.removeCombo}
                   selectedCombos={wizard.combos.selectedCombos}
                   availableBurgers={burgers || []}
+                  availableFries={availableFries}
                   getRemainingQuantity={wizard.combos.getRemainingQuantity}
                   canAddBurgerToSlot={wizard.combos.canAddBurgerToSlot}
                   onAddBurgerToSlot={wizard.combos.addBurgerToSlot}

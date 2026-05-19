@@ -51,7 +51,7 @@ interface SummaryStepProps {
     quantity: number;
     slots: Array<{
       slotId: string;
-      slotType: "burger" | "drink" | "side" | "nuggets";
+      slotType: "burger" | "drink" | "side" | "fries" | "nuggets";
       defaultMeatCount?: number;
       burgers: Array<{
         burger: {

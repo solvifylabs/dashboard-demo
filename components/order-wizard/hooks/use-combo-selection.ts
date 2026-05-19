@@ -18,7 +18,7 @@ export function useComboSelection() {
         quantity: 1,
         slots: combo.slots.map((slot) => ({
           slotId: slot.id,
-          slotType: slot.slot_type as "burger" | "drink" | "side",
+          slotType: slot.slot_type as "burger" | "drink" | "side" | "fries",
           maxQuantity: Number(slot.quantity),
           defaultMeatCount: slot.default_meat_quantity
             ? Number(slot.default_meat_quantity)

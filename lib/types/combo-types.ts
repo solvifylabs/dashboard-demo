@@ -63,7 +63,7 @@ export interface ComboWithSlots extends Combo {
 // ============================================
 
 // Tipos literales para slot_type (los que realmente usamos)
-export type ComboSlotType = "burger" | "drink" | "side";
+export type ComboSlotType = "burger" | "drink" | "side" | "fries";
 
 // Type guard para verificar slot_type
 export function isValidSlotType(type: string): type is ComboSlotType {
@@ -92,7 +92,7 @@ export interface SelectedBurger {
  */
 export interface SelectedComboSlot {
   slotId: string;
-  slotType: "burger" | "drink" | "side";
+  slotType: "burger" | "drink" | "side" | "fries";
   defaultMeatCount?: number;
   maxQuantity: number;
   minQuantity: number;
@@ -100,6 +100,8 @@ export interface SelectedComboSlot {
     min_quantity: number;
     max_quantity: number;
     allowed_meat_count?: number[];
+    no_fries?: boolean;
+    allowed_ids?: string[];
   };
   burgers: SelectedBurger[];
   selectedExtras: Extra[];
