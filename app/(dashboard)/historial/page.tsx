@@ -165,7 +165,7 @@ export default function OrdersHistoryPage() {
               value={dateFilter}
               onValueChange={(v) => setDateFilter(v as DateFilter)}
             >
-              <SelectTrigger className="h-10 w-55 bg-white">
+              <SelectTrigger className="h-10 w-55 bg-card">
                 <CalendarIcon className="mr-2 h-4 w-4" />
                 <SelectValue placeholder="Fecha" />
               </SelectTrigger>

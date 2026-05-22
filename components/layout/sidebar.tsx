@@ -61,29 +61,35 @@ export function AppSidebar({ role }: { role?: "admin" | "operator" }) {
 
   return (
     <Sidebar collapsible="icon" variant="floating" className="ios-sidebar">
-      <SidebarHeader className="pb-0">
-        <div className="flex items-center gap-3 px-1 py-2">
+      <SidebarHeader className="pb-2">
+        <div className="flex items-center gap-3 px-1 py-2 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:gap-0 group-data-[collapsible=icon]:px-0">
           <Image
             src="/solvify-icon.jpg"
             alt="Logo"
-            width={64}
-            height={64}
-            className="rounded-full bg-black shrink-0"
+            width={56}
+            height={56}
+            className="rounded-lg shrink-0 size-8 object-cover"
           />
           <div
-            className="
-              flex flex-col leading-tight
-              transition-all duration-200
-              group-data-[collapsible=icon]:hidden
-            "
+            className={cn(
+              "flex flex-col leading-tight overflow-hidden",
+              "transition-all duration-300 ease-in-out",
+              "max-w-xs opacity-100",
+              "group-data-[collapsible=icon]:max-w-0 group-data-[collapsible=icon]:opacity-0",
+            )}
           >
-            <span className={cn(baloo.className, "text-lg font-bold tracking-wide")}>
+            <span className={cn(baloo.className, "text-base font-bold tracking-wide whitespace-nowrap")}>
               Dishflow
             </span>
-     
           </div>
         </div>
-        <div className="group-data-[collapsible=icon]:hidden">
+        <div
+          className={cn(
+            "overflow-hidden transition-all duration-300 ease-in-out",
+            "max-h-20 opacity-100",
+            "group-data-[collapsible=icon]:max-h-0 group-data-[collapsible=icon]:opacity-0",
+          )}
+        >
           <DemoBanner />
         </div>
       </SidebarHeader>
@@ -101,13 +107,15 @@ export function AppSidebar({ role }: { role?: "admin" | "operator" }) {
                       isActive={isActive}
                       tooltip={item.name}
                       className={cn(
-                        "rounded-xl transition-all duration-200",
-                        isActive && "bg-sidebar-accent font-medium",
+                        "rounded-lg transition-all duration-200 h-9",
+                        isActive
+                          ? "bg-primary/10 text-primary font-medium"
+                          : "text-sidebar-foreground/70 hover:text-sidebar-foreground hover:bg-sidebar-accent",
                       )}
                     >
                       <Link href={item.href}>
-                        <item.icon className="size-5" />
-                        <span>{item.name}</span>
+                        <item.icon className={cn("size-4 shrink-0", isActive && "text-primary")} />
+                        <span className="text-sm">{item.name}</span>
                       </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>

@@ -281,7 +281,7 @@ export function CustomerStep({
                 })
               }
               rows={2}
-              className="bg-white"
+              className="bg-card"
               placeholder="Solo completar si es para envío a domicilio"
             />
           </div>

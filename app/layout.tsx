@@ -37,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <body className="font-sans antialiased min-h-screen overflow-hidden">
+      <body className="font-sans antialiased min-h-screen">
         {children}
         <Analytics />
       </body>

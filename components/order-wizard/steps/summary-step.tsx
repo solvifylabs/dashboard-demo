@@ -732,7 +732,7 @@ export function SummaryStep({
           onChange={(e) => onNotesChange(e.target.value)}
           placeholder="Instrucciones especiales..."
           rows={3}
-          className="bg-white"
+          className="bg-card"
         />
       </div>
     </div>

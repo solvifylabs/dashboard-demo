@@ -338,8 +338,8 @@ export function OrdersDashboard() {
       </div>
 
       {/* FOOTER */}
-      <div className="border border-border rounded-md bg-card p-4 min-h-17.5 shrink-0">
-        <div className="flex h-full items-center justify-between">
+      <div className="border border-border rounded-md bg-card p-4 shrink-0">
+        <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="text-sm">
             <span className="text-muted-foreground">
               Total pedidos del día:{" "}
@@ -348,8 +348,8 @@ export function OrdersDashboard() {
           </div>
 
           {readyOrders.length > 0 && (
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-sm text-muted-foreground shrink-0">
                 Pedidos listos:
               </span>
               {readyOrders.map((order) => (
