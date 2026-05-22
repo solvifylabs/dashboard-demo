@@ -381,7 +381,7 @@ export function OrdersDashboard() {
               <span className="text-sm text-muted-foreground shrink-0">
                 Pedidos listos:
               </span>
-              {readyOrders.length > 4 && (
+              {readyOrders.length >= 4 && (
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger asChild>
