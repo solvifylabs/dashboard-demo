@@ -119,6 +119,7 @@ export interface OrderItemWithExtras extends OrderItem {
 
 export interface OrderWithItems extends Order {
   customer_address?: CustomerAddress | null; // Nombre consistente con DB
+  customer?: { phone: string | null } | null;
   items: OrderItemWithExtras[];
 }
 

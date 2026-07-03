@@ -75,6 +75,9 @@ export function useOrderWithItems(orderId: string | null) {
             label,
             address,
             is_default
+          ),
+          customer: customers (
+            phone
           )
         `,
         )
