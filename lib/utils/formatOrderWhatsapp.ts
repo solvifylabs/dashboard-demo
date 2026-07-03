@@ -89,7 +89,7 @@ export function formatOrderForWhatsapp(order: Order) {
       customData.forEach((slot: any) => {
         if (slot.burgers?.length > 0) {
           slot.burgers.forEach((burger: any) => {
-            comboLines.push(`   🍔 ${burger.quantity}x ${burger.name} x${burger.meatCount}`);
+            comboLines.push(`   🍣 ${burger.quantity}x ${burger.name} x${burger.meatCount}`);
 
             const burgerParts: string[] = [];
             if (burger.isVeggie) {

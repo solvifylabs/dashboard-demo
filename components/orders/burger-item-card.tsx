@@ -87,14 +87,14 @@ export function SelectedBurgerCard({
     const diff = count - referenceMeatCount;
 
     if (diff === 0) {
-      if (count === 1) return "Simple";
-      if (count === 2) return "Doble";
-      if (count === 3) return "Triple";
-      return `${count} carnes`;
+      if (count === 1) return "8 piezas";
+      if (count === 2) return "16 piezas";
+      if (count === 3) return "24 piezas";
+      return `${count} porciones`;
     }
 
     if (diff < 0) {
-      return `${count} ${count === 1 ? "carne" : "carnes"} (-${formatCurrency(
+      return `${count} ${count === 1 ? "porción" : "porciones"} (-${formatCurrency(
         Math.abs(diff) * (meatExtra?.price ?? 0),
       )})`;
     }
@@ -108,13 +108,13 @@ export function SelectedBurgerCard({
     const diff = count - referenceFriesCount;
 
     if (diff === 0) {
-      if (count === 0) return "Sin papas";
-      if (count === 1) return "1 porción (incluida)";
+      if (count === 0) return "Sin guarnición";
+      if (count === 1) return "Guarnición incluida";
       return `${count} porciones`;
     }
 
     if (diff < 0) {
-      return `Sin papas (-${formatCurrency(
+      return `Sin guarnición (-${formatCurrency(
         Math.abs(diff) * (friesExtra?.price ?? 0),
       )})`;
     }
@@ -218,7 +218,7 @@ export function SelectedBurgerCard({
               {meatExtra && (
                 <div>
                   <p className="mb-2 text-xs font-medium uppercase text-muted-foreground">
-                    Medallones
+                    Porciones
                   </p>
 
                   <div className="flex items-center gap-3">
@@ -270,7 +270,7 @@ export function SelectedBurgerCard({
               {friesExtra && (
                 <div>
                   <p className="mb-2 text-xs font-medium uppercase text-muted-foreground">
-                    Papas Fritas
+                    Guarnición
                   </p>
 
                   <div className="flex items-center gap-3">
@@ -315,9 +315,9 @@ export function SelectedBurgerCard({
                       : category === "drink"
                         ? "Bebidas"
                         : category === "fries"
-                          ? "Papas"
+                          ? "Guarniciones"
                           : category === "sides"
-                            ? "Acompañamientos"
+                            ? "Entradas"
                             : "Otros"}
                   </p>
 
@@ -325,8 +325,8 @@ export function SelectedBurgerCard({
                     {categoryExtras
                       .filter(
                         (e) =>
-                          e.name !== "Medallón" &&
-                          e.name !== "Papas Fritas Chicas",
+                          e.name !== "Porción extra" &&
+                          e.name !== "Gyozas x4",
                       )
                       .map((extra) => {
                         const selected = item.selectedExtras.find(

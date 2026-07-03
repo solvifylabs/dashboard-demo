@@ -1,4 +1,4 @@
--- Seed data for burger restaurant dashboard template
+-- Seed data for sushi restaurant dashboard template
 -- Run this AFTER 001-create-schema.sql
 
 -- ============================================
@@ -13,71 +13,71 @@ INSERT INTO categories (id, name, type) VALUES
   ('a1000000-0000-0000-0000-000000000006', 'Papas',         'fries');
 
 -- ============================================
--- BURGERS
+-- BURGERS (rolls de sushi)
 -- ============================================
 INSERT INTO burgers (id, name, description, base_price, ingredients, is_available, default_meat_quantity, default_fries_quantity) VALUES
   (
     'b1000000-0000-0000-0000-000000000001',
-    'Clásica',
-    'Medallón de carne, lechuga, tomate y cebolla',
-    3500.00,
-    ARRAY['medallón de carne', 'lechuga', 'tomate', 'cebolla', 'pan brioche'],
+    'California Roll',
+    'Clásico roll con cangrejo, palta y pepino',
+    4500.00,
+    ARRAY['cangrejo', 'palta', 'pepino', 'mayonesa', 'arroz', 'nori'],
     true, 1, 1
   ),
   (
     'b1000000-0000-0000-0000-000000000002',
-    'Cheese',
-    'Medallón de carne con queso cheddar fundido',
-    3900.00,
-    ARRAY['medallón de carne', 'queso cheddar', 'lechuga', 'tomate', 'pan brioche'],
+    'Philadelphia Roll',
+    'Salmón fresco y queso crema sobre arroz',
+    5000.00,
+    ARRAY['salmón', 'queso crema', 'palta', 'arroz', 'nori'],
     true, 1, 1
   ),
   (
     'b1000000-0000-0000-0000-000000000003',
-    'Bacon',
-    'Medallón de carne con panceta crocante y cheddar',
-    4500.00,
-    ARRAY['medallón de carne', 'panceta', 'queso cheddar', 'lechuga', 'tomate', 'pan brioche'],
+    'Sake Roll',
+    'Roll de salmón con sésamo tostado',
+    4800.00,
+    ARRAY['salmón', 'arroz', 'nori', 'semillas de sésamo'],
     true, 1, 1
   ),
   (
     'b1000000-0000-0000-0000-000000000004',
-    'BBQ',
-    'Medallón de carne con salsa BBQ y cebolla caramelizada',
-    4200.00,
-    ARRAY['medallón de carne', 'salsa BBQ', 'cebolla caramelizada', 'queso cheddar', 'pan brioche'],
+    'Ebi Tempura Roll',
+    'Langostino en tempura con palta y salsa teriyaki',
+    6000.00,
+    ARRAY['langostino tempura', 'palta', 'pepino', 'salsa teriyaki', 'arroz', 'nori'],
     true, 1, 1
   ),
   (
     'b1000000-0000-0000-0000-000000000005',
-    'Doble Clásica',
-    'Dos medallones de carne con todos los clásicos',
+    'Spicy Tuna Roll',
+    'Atún con toque picante, pepino y palta',
     5500.00,
-    ARRAY['doble medallón de carne', 'lechuga', 'tomate', 'cebolla', 'pan brioche'],
-    true, 2, 1
+    ARRAY['atún', 'salsa spicy', 'pepino', 'palta', 'arroz', 'nori'],
+    true, 1, 1
   ),
   (
     'b1000000-0000-0000-0000-000000000006',
-    'Doble Cheese Bacon',
-    'Dos medallones, doble cheddar y panceta',
-    6500.00,
-    ARRAY['doble medallón de carne', 'doble queso cheddar', 'panceta', 'lechuga', 'tomate', 'pan brioche'],
-    true, 2, 1
+    'New York Roll',
+    'Salmón, palta y cebolla crispy con mayonesa',
+    5800.00,
+    ARRAY['salmón', 'palta', 'pepino', 'cebolla crispy', 'mayonesa', 'arroz', 'nori'],
+    true, 1, 1
   ),
   (
     'b1000000-0000-0000-0000-000000000007',
-    'Crispy Chicken',
-    'Medallón de pollo crocante con mayonesa de la casa',
-    4000.00,
-    ARRAY['medallón de pollo', 'mayonesa de la casa', 'lechuga', 'tomate', 'pan brioche'],
+    'Tako Roll',
+    'Pulpo marinado con salsa ponzu y pepino',
+    5200.00,
+    ARRAY['pulpo', 'pepino', 'salsa ponzu', 'arroz', 'nori'],
     true, 1, 1
   ),
   (
     'b1000000-0000-0000-0000-000000000008',
-    'Veggie',
-    'Medallón vegetal con guacamole y vegetales frescos',
-    3800.00,
-    ARRAY['medallón vegetal', 'guacamole', 'lechuga', 'tomate', 'cebolla morada', 'pan integral'],
+    'Veggie Roll',
+    'Palta, pepino y zanahoria con queso crema',
+    4200.00,
+    ARRAY['palta', 'pepino', 'zanahoria', 'queso crema', 'arroz', 'nori'],
     true, 1, 1
   );
 
@@ -85,32 +85,28 @@ INSERT INTO burgers (id, name, description, base_price, ingredients, is_availabl
 -- EXTRAS
 -- ============================================
 INSERT INTO extras (id, name, category, price, is_available) VALUES
-  -- Extras para hamburguesas
-  ('e1000000-0000-0000-0000-000000000001', 'Queso cheddar extra',      'extra', 500.00,  true),
-  ('e1000000-0000-0000-0000-000000000002', 'Panceta',                  'extra', 700.00,  true),
-  ('e1000000-0000-0000-0000-000000000003', 'Huevo frito',              'extra', 400.00,  true),
-  ('e1000000-0000-0000-0000-000000000004', 'Cebolla caramelizada',     'extra', 350.00,  true),
-  ('e1000000-0000-0000-0000-000000000005', 'Jalapeños',                'extra', 300.00,  true),
-  ('e1000000-0000-0000-0000-000000000006', 'Medallón extra',           'extra', 1500.00, true),
-  ('e1000000-0000-0000-0000-000000000007', 'Cheddar en salsa',         'extra', 600.00,  true),
-  ('e1000000-0000-0000-0000-000000000008', 'Guacamole',                'extra', 500.00,  true),
+  -- Extras para rolls
+  ('e1000000-0000-0000-0000-000000000001', 'Porción extra',            'extra', 1500.00, true),
+  ('e1000000-0000-0000-0000-000000000002', 'Queso crema extra',        'extra',  600.00, true),
+  ('e1000000-0000-0000-0000-000000000003', 'Palta extra',              'extra',  800.00, true),
+  ('e1000000-0000-0000-0000-000000000004', 'Salsa teriyaki',           'extra',  400.00, true),
+  ('e1000000-0000-0000-0000-000000000005', 'Cebolla crispy',           'extra',  400.00, true),
+  ('e1000000-0000-0000-0000-000000000006', 'Salsa spicy',              'extra',  400.00, true),
   -- Bebidas
   ('e1000000-0000-0000-0000-000000000010', 'Coca-Cola 500ml',          'drink', 1000.00, true),
   ('e1000000-0000-0000-0000-000000000011', 'Sprite 500ml',             'drink', 1000.00, true),
   ('e1000000-0000-0000-0000-000000000012', 'Fanta 500ml',              'drink', 1000.00, true),
-  ('e1000000-0000-0000-0000-000000000013', 'Agua mineral 500ml',       'drink', 700.00,  true),
-  ('e1000000-0000-0000-0000-000000000014', 'Jugo natural',             'drink', 1200.00, true),
-  ('e1000000-0000-0000-0000-000000000015', 'Cerveza 500ml',            'drink', 1500.00, true),
-  ('e1000000-0000-0000-0000-000000000016', 'Limonada',                 'drink', 1100.00, true),
-  -- Papas
-  ('e1000000-0000-0000-0000-000000000020', 'Papas fritas chicas',      'fries', 1200.00, true),
-  ('e1000000-0000-0000-0000-000000000021', 'Papas fritas grandes',     'fries', 1800.00, true),
-  ('e1000000-0000-0000-0000-000000000022', 'Papas con cheddar',        'fries', 2200.00, true),
-  ('e1000000-0000-0000-0000-000000000023', 'Papas con bacon y cheddar','fries', 2600.00, true),
-  ('e1000000-0000-0000-0000-000000000024', 'Papas rústicas',           'fries', 2000.00, true),
-  -- Sides
-  ('e1000000-0000-0000-0000-000000000030', 'Aros de cebolla',          'sides', 1500.00, true),
-  ('e1000000-0000-0000-0000-000000000031', 'Nuggets x6',               'sides', 1800.00, true);
+  ('e1000000-0000-0000-0000-000000000013', 'Agua mineral 500ml',       'drink',  700.00, true),
+  ('e1000000-0000-0000-0000-000000000014', 'Limonada de jengibre',     'drink', 1200.00, true),
+  -- Guarniciones
+  ('e1000000-0000-0000-0000-000000000020', 'Gyozas x4',                'fries', 1500.00, true),
+  ('e1000000-0000-0000-0000-000000000021', 'Gyozas x6',                'fries', 2000.00, true),
+  ('e1000000-0000-0000-0000-000000000022', 'Tempura de langostinos',   'fries', 2500.00, true),
+  ('e1000000-0000-0000-0000-000000000023', 'Yakimeshi',                'fries', 1800.00, true),
+  ('e1000000-0000-0000-0000-000000000024', 'Arroz gohan',              'fries', 1200.00, true),
+  -- Entradas
+  ('e1000000-0000-0000-0000-000000000030', 'Edamame',                  'sides', 1200.00, true),
+  ('e1000000-0000-0000-0000-000000000031', 'Sopa miso',                'sides',  800.00, true);
 
 -- ============================================
 -- COMBOS
@@ -118,23 +114,23 @@ INSERT INTO extras (id, name, category, price, is_available) VALUES
 INSERT INTO combos (id, name, description, price, is_available) VALUES
   (
     'c1000000-0000-0000-0000-000000000001',
-    'Combo Clásico',
-    'Burger clásica + papas fritas chicas + bebida 500ml',
-    5500.00,
+    'Combo Individual',
+    'Roll a elección + guarnición + bebida 500ml',
+    7500.00,
     true
   ),
   (
     'c1000000-0000-0000-0000-000000000002',
-    'Combo Familiar',
-    '2 burgers a elección + papas fritas grandes + 2 bebidas',
-    12000.00,
+    'Combo Pareja',
+    '2 rolls a elección + guarnición + 2 bebidas',
+    16000.00,
     true
   ),
   (
     'c1000000-0000-0000-0000-000000000003',
-    'Combo Premium',
-    'Burger especial a elección + papas con cheddar + bebida',
-    7500.00,
+    'Combo Deluxe',
+    'Roll especial a elección + guarnición extra + bebida',
+    10000.00,
     true
   );
 
@@ -167,7 +163,7 @@ INSERT INTO combo_slots_rules (combo_slot_id, rule_type, rule_value) VALUES
   ('5a000000-0000-0000-0000-000000000006', 'allowed_ids', 'e1000000-0000-0000-0000-000000000010,e1000000-0000-0000-0000-000000000011,e1000000-0000-0000-0000-000000000012,e1000000-0000-0000-0000-000000000013'),
   -- Combo Premium: papas con cheddar o con bacon
   ('5a000000-0000-0000-0000-000000000008', 'allowed_ids', 'e1000000-0000-0000-0000-000000000022,e1000000-0000-0000-0000-000000000023'),
-  ('5a000000-0000-0000-0000-000000000009', 'allowed_ids', 'e1000000-0000-0000-0000-000000000010,e1000000-0000-0000-0000-000000000011,e1000000-0000-0000-0000-000000000012,e1000000-0000-0000-0000-000000000013,e1000000-0000-0000-0000-000000000016');
+  ('5a000000-0000-0000-0000-000000000009', 'allowed_ids', 'e1000000-0000-0000-0000-000000000010,e1000000-0000-0000-0000-000000000011,e1000000-0000-0000-0000-000000000012,e1000000-0000-0000-0000-000000000013,e1000000-0000-0000-0000-000000000014');
 
 -- ============================================
 -- CUSTOMERS

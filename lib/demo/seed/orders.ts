@@ -39,19 +39,19 @@ function setHour(d: Date, h: number, m = 0): Date {
 // ============================================================
 
 export const BURGER_IDS   = ["b1000000-0000-0000-0000-000000000001","b1000000-0000-0000-0000-000000000002","b1000000-0000-0000-0000-000000000003","b1000000-0000-0000-0000-000000000004","b1000000-0000-0000-0000-000000000005","b1000000-0000-0000-0000-000000000006","b1000000-0000-0000-0000-000000000007","b1000000-0000-0000-0000-000000000008"];
-export const BURGER_NAMES = ["Clásica","Cheese","Bacon","BBQ","Doble Clásica","Doble Cheese Bacon","Crispy Chicken","Veggie"];
-export const BURGER_PRICES= [4500,4900,5500,5200,6800,7800,5000,4800];
+export const BURGER_NAMES = ["California Roll","Philadelphia Roll","Sake Roll","Ebi Tempura Roll","Spicy Tuna Roll","New York Roll","Tako Roll","Veggie Roll"];
+export const BURGER_PRICES= [4500,5200,4800,5500,5800,5400,5600,4300];
 
 export const FRIES_IDS    = ["e1000000-0000-0000-0000-000000000020","e1000000-0000-0000-0000-000000000021","e1000000-0000-0000-0000-000000000022","e1000000-0000-0000-0000-000000000024"];
-export const FRIES_NAMES  = ["Papas fritas chicas","Papas fritas grandes","Papas con cheddar","Papas rústicas"];
+export const FRIES_NAMES  = ["Gyozas x4","Gyozas x6","Tempura de langostinos","Arroz gohan"];
 export const FRIES_PRICES = [1200,1800,2400,2100];
 
 export const DRINK_IDS    = ["e1000000-0000-0000-0000-000000000010","e1000000-0000-0000-0000-000000000011","e1000000-0000-0000-0000-000000000012","e1000000-0000-0000-0000-000000000016"];
-export const DRINK_NAMES  = ["Coca-Cola 500ml","Sprite 500ml","Fanta 500ml","Limonada"];
+export const DRINK_NAMES  = ["Coca-Cola 500ml","Sprite 500ml","Fanta 500ml","Limonada de jengibre"];
 export const DRINK_PRICES = [1200,1200,1200,1400];
 
 const EXT_IDS      = ["e1000000-0000-0000-0000-000000000001","e1000000-0000-0000-0000-000000000002","e1000000-0000-0000-0000-000000000003"];
-const EXT_NAMES    = ["Queso cheddar extra","Panceta","Huevo frito"];
+const EXT_NAMES    = ["Queso crema extra","Palta extra","Salsa teriyaki"];
 const EXT_PRICES   = [600,800,500];
 
 export const CUST_IDS  = Array.from({length:15},(_,i)=>`cu000000-0000-0000-0000-${String(i+1).padStart(12,"0")}`);

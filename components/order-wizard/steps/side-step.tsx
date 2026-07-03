@@ -34,9 +34,9 @@ export function SidesStep({
     <div className="space-y-6">
       {/* Available sides */}
       <div>
-        <h3 className="mb-1 text-sm font-medium">Acompañamientos</h3>
+        <h3 className="mb-1 text-sm font-medium">Entradas</h3>
         <p className="text-xs text-muted-foreground mb-3">
-          Nuggets, aros de cebolla, papas y más. Podés agregar varios.
+          Edamame, sopa miso y más. Podés agregar varios.
         </p>
 
         <div className="grid grid-cols-2 gap-3">
@@ -173,7 +173,7 @@ export function SidesStep({
                                   : category === "drink"
                                     ? "Bebidas"
                                     : category === "fries"
-                                      ? "Papas"
+                                      ? "Guarniciones"
                                       : "Otros"}
                               </p>
                               <div className="flex flex-wrap gap-2">
@@ -262,7 +262,7 @@ export function SidesStep({
 
       {availableSides.length === 0 && (
         <div className="flex flex-col items-center justify-center py-12 text-muted-foreground">
-          <p className="text-sm">No hay acompañamientos disponibles</p>
+          <p className="text-sm">No hay entradas disponibles</p>
         </div>
       )}
     </div>

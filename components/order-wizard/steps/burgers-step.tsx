@@ -70,7 +70,7 @@ export function BurgersStep({
     <div className="space-y-6">
       {/* Available Burgers */}
       <div>
-        <h3 className="mb-3 text-sm font-medium">Seleccionar hamburguesas</h3>
+        <h3 className="mb-3 text-sm font-medium">Seleccionar rolls</h3>
         <div className="grid grid-cols-2 gap-3">
           {availableBurgers?.map((burger) => {
             const qty = burgerCount[burger.id] ?? 0;

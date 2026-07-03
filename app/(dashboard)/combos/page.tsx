@@ -284,7 +284,7 @@ export default function CombosPage() {
               <Input
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
-                placeholder="Ej: 2x Triples"
+                placeholder="Ej: Combo Pareja"
               />
             </div>
 
@@ -304,7 +304,7 @@ export default function CombosPage() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <Label>Cantidad de hamburguesas</Label>
+                  <Label>Cantidad de rolls</Label>
                   <Input
                     type="number"
                     min={0}
@@ -318,17 +318,17 @@ export default function CombosPage() {
                     }
                   />
                   <p className="text-xs text-muted-foreground">
-                    Cuántas hamburguesas incluye
+                    Cuántos rolls incluye
                   </p>
                 </div>
 
                 <div className="space-y-1">
-                  <Label>Carnes por hamburguesa</Label>
+                  <Label>Piezas por porción</Label>
                   <Input
                     type="number"
                     min={1}
                     max={5}
-                    placeholder="Ej: 2 (doble) o 3 (triple)"
+                    placeholder="Ej: 1 (8 pzas) o 2 (16 pzas)"
                     value={form.burgers_default_meat_quantity}
                     onChange={(e) =>
                       setForm({
@@ -338,7 +338,7 @@ export default function CombosPage() {
                     }
                   />
                   <p className="text-xs text-muted-foreground">
-                    1=simple, 2=doble, 3=triple
+                    1 = 8 pzas · 2 = 16 pzas · 3 = 24 pzas
                   </p>
                 </div>
               </div>
@@ -350,7 +350,7 @@ export default function CombosPage() {
                     setForm({ ...form, include_fries: v })
                   }
                 />
-                <Label>Incluye papas</Label>
+                <Label>Incluye guarnición</Label>
               </div>
 
               <div className="space-y-2">
@@ -392,12 +392,12 @@ export default function CombosPage() {
                       setForm({ ...form, include_side: v })
                     }
                   />
-                  <Label>Incluye acompañamiento</Label>
+                  <Label>Incluye entrada</Label>
                 </div>
                 {form.include_side && (
                   <div className="ml-10 space-y-1">
                     <Label className="text-xs text-muted-foreground">
-                      Cantidad de acompañamientos
+                      Cantidad de entradas
                     </Label>
                     <Input
                       type="number"

@@ -17,7 +17,7 @@ import type { ExtraCategory } from "@/lib/types";
 const categoryLabels: Record<ExtraCategory, string> = {
   extra: "Extras",
   drink: "Bebidas",
-  fries: "Papas",
+  fries: "Guarniciones",
   combo: "Combos",
 };
 
@@ -64,17 +64,17 @@ export default function PricingPage() {
       <div className="flex-1 overflow-auto py-6">
         <Tabs defaultValue="burgers">
           <TabsList className="mb-6">
-            <TabsTrigger value="burgers">Hamburguesas</TabsTrigger>
+            <TabsTrigger value="burgers">Rolls</TabsTrigger>
             <TabsTrigger value="extras">Extras</TabsTrigger>
             <TabsTrigger value="drinks">Bebidas</TabsTrigger>
-            <TabsTrigger value="fries">Papas</TabsTrigger>
+            <TabsTrigger value="fries">Guarniciones</TabsTrigger>
             <TabsTrigger value="combos">Combos</TabsTrigger>
           </TabsList>
 
           <TabsContent value="burgers">
             <Card className="bg-card">
               <CardHeader>
-                <CardTitle>Precios de Hamburguesas</CardTitle>
+                <CardTitle>Precios de Rolls</CardTitle>
               </CardHeader>
               <CardContent>
                 {isLoading ? (

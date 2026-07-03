@@ -62,12 +62,12 @@ export function OrderWizardDrawer({
 
   // ================= COMPUTED DATA =================
   const meatExtra = useMemo(
-    () => extras?.find((e) => e.name === "Medallón"),
+    () => extras?.find((e) => e.name === "Porción extra"),
     [extras],
   );
 
   const friesExtra = useMemo(
-    () => extras?.find((e) => e.name === "Papas fritas chicas"),
+    () => extras?.find((e) => e.name === "Gyozas x4"),
     [extras],
   );
 
@@ -198,7 +198,7 @@ export function OrderWizardDrawer({
   const steps = [
     { key: "customer", label: "Cliente" },
     { key: "combos", label: "Combos" },
-    { key: "burgers", label: "Hamburguesas" },
+    { key: "burgers", label: "Rolls" },
     { key: "sides", label: "Acomp." },
     { key: "summary", label: "Resumen" },
   ];
@@ -432,7 +432,7 @@ export function OrderWizardDrawer({
                   )}
                   {totalBurgerItems > 0 && (
                     <span>
-                      {totalBurgerItems} hamburguesa
+                      {totalBurgerItems} roll
                       {totalBurgerItems > 1 ? "s" : ""}
                     </span>
                   )}

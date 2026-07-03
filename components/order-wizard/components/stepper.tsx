@@ -4,7 +4,7 @@ import { WizardStep } from "../order-wizard-context";
 
 const steps: { key: WizardStep; label: string }[] = [
   { key: "customer", label: "Cliente" },
-  { key: "burgers", label: "Hamburguesas" },
+  { key: "burgers", label: "Rolls" },
   { key: "summary", label: "Resumen" },
 ];
 

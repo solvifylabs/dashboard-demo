@@ -8,25 +8,25 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Dishflow - Sistema de Operaciones",
-  description: "Sistema de operaciones para restaurante de hamburguesas",
+  title: "Kibo - Sistema de Operaciones",
+  description: "Sistema de operaciones para restaurante de sushi",
   generator: "v0.app",
   icons: {
     icon: [
       {
-        url: "/solvify-icon.jpg",
+        url: "/kibo.jpg",
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/solvify-icon.jpg",
+        url: "/kibo.jpg",
         media: "(prefers-color-scheme: dark)",
       },
       {
-        url: "/solvify-icon.jpg",
+        url: "/kibo.jpg",
         type: "image/svg+xml",
       },
     ],
-    apple: "/solvify-icon.jpg",
+    apple: "/kibo.jpg",
   },
 };
 

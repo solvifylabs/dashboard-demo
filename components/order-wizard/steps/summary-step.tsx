@@ -436,12 +436,12 @@ export function SummaryStep({
               const baseMeat = item.burger.default_meat_quantity;
               const diffMeat = item.meatCount - baseMeat;
               const sizeLabel =
-                item.meatCount === 1 ? "Simple"
-                : item.meatCount === 2 ? "Doble"
-                : item.meatCount === 3 ? "Triple"
-                : item.meatCount === 4 ? "Cuádruple"
-                : item.meatCount === 5 ? "Quíntuple"
-                : `${item.meatCount} carnes`;
+                item.meatCount === 1 ? "8 piezas"
+                : item.meatCount === 2 ? "16 piezas"
+                : item.meatCount === 3 ? "24 piezas"
+                : item.meatCount === 4 ? "32 piezas"
+                : item.meatCount === 5 ? "40 piezas"
+                : `${item.meatCount} porciones`;
 
               const baseFries = item.burger.default_fries_quantity ?? 1;
               const diffFries = item.friesQuantity - baseFries;
@@ -478,8 +478,8 @@ export function SummaryStep({
                         <p className="text-xs text-muted-foreground">
                           •{" "}
                           {item.friesQuantity === 0
-                            ? "Sin papas"
-                            : `${item.friesQuantity} ${item.friesQuantity === 1 ? "porción" : "porciones"} de papas`}
+                            ? "Sin guarnición"
+                            : `${item.friesQuantity} ${item.friesQuantity === 1 ? "porción" : "porciones"} de guarnición`}
                           {friesExtra && diffFries !== 0 && (
                             <span className={cn("font-medium", diffFries < 0 ? "text-green-600 dark:text-green-400" : "text-primary")}>
                               {" "}
@@ -491,7 +491,7 @@ export function SummaryStep({
                         </p>
                         {diffMeat > 0 && meatExtra && (
                           <p className="text-xs text-muted-foreground">
-                            • + {diffMeat}x Medallón extra{" "}
+                            • + {diffMeat}x Porción extra{" "}
                             <span className="text-primary font-medium">
                               +{formatCurrency(diffMeat * meatExtra.price * item.quantity)}
                             </span>
@@ -567,12 +567,12 @@ export function SummaryStep({
                         const referenceFriesCount = b.referenceFriesQuantity ?? b.burger.default_fries_quantity ?? 1;
                         const friesDiff = b.friesQuantity - referenceFriesCount;
                         const comboSizeLabel =
-                          b.meatCount === 1 ? "Simple"
-                          : b.meatCount === 2 ? "Doble"
-                          : b.meatCount === 3 ? "Triple"
-                          : b.meatCount === 4 ? "Cuádruple"
-                          : b.meatCount === 5 ? "Quíntuple"
-                          : `${b.meatCount} carnes`;
+                          b.meatCount === 1 ? "8 piezas"
+                          : b.meatCount === 2 ? "16 piezas"
+                          : b.meatCount === 3 ? "24 piezas"
+                          : b.meatCount === 4 ? "32 piezas"
+                          : b.meatCount === 5 ? "40 piezas"
+                          : `${b.meatCount} porciones`;
 
                         return (
                           <div key={burgerIndex} className="ml-4 space-y-1">
@@ -591,8 +591,8 @@ export function SummaryStep({
                               )}
                               <p className="text-xs text-muted-foreground">
                                 •{" "}
-                                {b.friesQuantity === 0 ? "Sin papas"
-                                  : `${b.friesQuantity} ${b.friesQuantity === 1 ? "porción" : "porciones"} de papas`}
+                                {b.friesQuantity === 0 ? "Sin guarnición"
+                                  : `${b.friesQuantity} ${b.friesQuantity === 1 ? "porción" : "porciones"} de guarnición`}
                                 {friesExtra && friesDiff !== 0 && (
                                   <span className={cn("font-medium", friesDiff < 0 ? "text-green-600 dark:text-green-400" : "text-primary")}>
                                     {" "}{friesDiff < 0
@@ -603,7 +603,7 @@ export function SummaryStep({
                               </p>
                               {meatDiff > 0 && meatExtra && (
                                 <p className="text-xs text-muted-foreground">
-                                  • + {meatDiff}x Medallón extra{" "}
+                                  • + {meatDiff}x Porción extra{" "}
                                   <span className="text-primary font-medium">
                                     +{formatCurrency(meatDiff * meatExtra.price * b.quantity)}
                                   </span>

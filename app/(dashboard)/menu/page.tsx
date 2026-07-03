@@ -80,7 +80,7 @@ export default function MenuPage() {
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
 
-const FALLBACK_IMAGE = '/solvify-icon.jpg'
+const FALLBACK_IMAGE = '/kibo.jpg'
 
   /* ================= HANDLERS ================= */
 
@@ -209,8 +209,8 @@ const FALLBACK_IMAGE = '/solvify-icon.jpg'
 
       setDialogOpen(false);
     } catch (error) {
-      console.error("Error saving burger:", error);
-      alert("Error al guardar hamburguesa");
+      console.error("Error saving roll:", error);
+      alert("Error al guardar roll");
     }
   };
 
@@ -235,21 +235,21 @@ const FALLBACK_IMAGE = '/solvify-icon.jpg'
 
   return (
     <section className="flex h-screen flex-col">
-      <Header title="Menú" subtitle="Administra las hamburguesas del menú" />
+      <Header title="Menú" subtitle="Administra los rolls del menú" />
 
       <div className="flex-1 overflow-auto py-6 md:py-6 md:px-0">
         {/* Header */}
         <div className="mb-6 flex items-center justify-between">
           <div>
             <p className="text-sm text-muted-foreground">
-              {burgers?.length || 0} hamburguesas{" "}
+              {burgers?.length || 0} rolls{" "}
               {burgers &&
                 `(${burgers.filter((b) => b.is_available).length} disponibles)`}
             </p>
           </div>
           <Button onClick={handleOpenCreate}>
             <Plus className="mr-2 h-4 w-4" />
-            Nueva hamburguesa
+            Nuevo roll
           </Button>
         </div>
 
@@ -373,13 +373,13 @@ const FALLBACK_IMAGE = '/solvify-icon.jpg'
         ) : (
           <div className="py-20 text-center">
             <ImageIcon className="mx-auto mb-4 h-16 w-16 text-muted-foreground" />
-            <h3 className="mb-2 text-lg font-semibold">No hay hamburguesas</h3>
+            <h3 className="mb-2 text-lg font-semibold">No hay rolls</h3>
             <p className="mb-4 text-sm text-muted-foreground">
-              Comienza creando tu primera hamburguesa
+              Comienza creando tu primer roll
             </p>
             <Button onClick={handleOpenCreate}>
               <Plus className="mr-2 h-4 w-4" />
-              Crear primera hamburguesa
+              Crear primer roll
             </Button>
           </div>
         )}
@@ -390,12 +390,12 @@ const FALLBACK_IMAGE = '/solvify-icon.jpg'
         <DialogContent className="max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>
-              {editingBurger ? "Editar hamburguesa" : "Nueva hamburguesa"}
+              {editingBurger ? "Editar roll" : "Nuevo roll"}
             </DialogTitle>
             <DialogDescription>
               {editingBurger
-                ? "Modifica los datos de la hamburguesa"
-                : "Completa los datos para crear una nueva hamburguesa"}
+                ? "Modifica los datos del roll"
+                : "Completa los datos para crear un nuevo roll"}
             </DialogDescription>
           </DialogHeader>
 
@@ -470,7 +470,7 @@ const FALLBACK_IMAGE = '/solvify-icon.jpg'
                 onChange={(e) =>
                   setFormData({ ...formData, name: e.target.value })
                 }
-                placeholder="BBQ Bacon"
+                placeholder="California Roll"
               />
             </div>
 
@@ -491,7 +491,7 @@ const FALLBACK_IMAGE = '/solvify-icon.jpg'
             {/* Default Meat & Fries */}
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="meat">Medallones por defecto</Label>
+                <Label htmlFor="meat">Piezas por porción</Label>
                 <Input
                   id="meat"
                   type="number"
@@ -506,7 +506,7 @@ const FALLBACK_IMAGE = '/solvify-icon.jpg'
                 />
               </div>
               <div>
-                <Label htmlFor="fries">Papas por defecto</Label>
+                <Label htmlFor="fries">Guarnición por defecto</Label>
                 <Input
                   id="fries"
                   type="number"
@@ -531,7 +531,7 @@ const FALLBACK_IMAGE = '/solvify-icon.jpg'
                 onChange={(e) =>
                   setFormData({ ...formData, description: e.target.value })
                 }
-                placeholder="Deliciosa hamburguesa con..."
+                placeholder="Delicioso roll de sushi..."
                 rows={3}
               />
             </div>
@@ -608,7 +608,7 @@ const FALLBACK_IMAGE = '/solvify-icon.jpg'
                   ? "Guardando..."
                   : editingBurger
                     ? "Guardar cambios"
-                    : "Crear hamburguesa"}
+                    : "Crear roll"}
             </Button>
           </DialogFooter>
         </DialogContent>
@@ -618,13 +618,13 @@ const FALLBACK_IMAGE = '/solvify-icon.jpg'
       <AlertDialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Eliminar hamburguesa</AlertDialogTitle>
+            <AlertDialogTitle>Eliminar roll</AlertDialogTitle>
             <AlertDialogDescription>
               ¿Estás seguro de eliminar "{deletingBurger?.name}"?
               <br />
               <span className="text-sm text-muted-foreground mt-2 block">
-                Si esta hamburguesa tiene pedidos asociados, no se podrá
-                eliminar. En ese caso, puedes ocultarla usando el botón de
+                Si este roll tiene pedidos asociados, no se podrá
+                eliminar. En ese caso, puedes ocultarlo usando el botón de
                 "Ocultar".
               </span>
             </AlertDialogDescription>

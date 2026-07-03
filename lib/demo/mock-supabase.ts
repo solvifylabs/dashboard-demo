@@ -352,7 +352,7 @@ class MockQueryBuilder<T = unknown> {
 
 const DEMO_USER = {
   id: "demo-admin-00000000-0000-0000-0000",
-  email: "demo@hamburgueseria.com",
+  email: "demo@kibo.com",
   user_metadata: { role: "admin", name: "Demo Admin" },
   aud: "authenticated",
   created_at: new Date().toISOString(),

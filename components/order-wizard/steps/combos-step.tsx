@@ -175,7 +175,7 @@ export function CombosStep({
                 <Card key={slot.slotId}>
                   <CardContent className="space-y-3 p-4">
                     <h5 className="text-sm font-medium">
-                      Hamburguesas ({remaining} disponibles)
+                      Rolls ({remaining} disponibles)
                     </h5>
 
                     <div className="space-y-2">

@@ -44,7 +44,7 @@ export function useCreateBurger() {
     },
     onError: (error: any) => {
       console.error("Error creating burger:", error);
-      alert("Error al crear hamburguesa: " + error.message);
+      alert("Error al crear roll: " + error.message);
     },
   });
 }
@@ -71,7 +71,7 @@ export function useUpdateBurger() {
     },
     onError: (error: any) => {
       console.error("Error updating burger:", error);
-      alert("Error al actualizar hamburguesa: " + error.message);
+      alert("Error al actualizar roll: " + error.message);
     },
   });
 }
@@ -92,7 +92,7 @@ export function useDeleteBurger() {
         // Si hay error de foreign key constraint
         if (error.code === "23503") {
           throw new Error(
-            "No se puede eliminar esta hamburguesa porque está siendo usada en pedidos o combos",
+            "No se puede eliminar este roll porque está siendo usado en pedidos o combos",
           );
         }
         throw error;
@@ -107,7 +107,7 @@ export function useDeleteBurger() {
     },
     onError: (error: any) => {
       console.error("❌ Error in onError:", error);
-      alert(error.message || "Error al eliminar hamburguesa");
+      alert(error.message || "Error al eliminar roll");
     },
   });
 }

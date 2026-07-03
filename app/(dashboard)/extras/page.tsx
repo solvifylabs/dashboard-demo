@@ -49,8 +49,8 @@ import { cn } from "@/lib/utils";
 const categoryLabels: Record<ExtraCategory, string> = {
   extra: "Extras",
   drink: "Bebidas",
-  fries: "Papas",
-  sides: "Acompañamientos", // 🆕
+  fries: "Guarniciones",
+  sides: "Entradas",
 };
 
 const PAGE_SIZE = 12;
@@ -145,7 +145,7 @@ export default function ExtrasPage() {
     <div className="flex flex-1 flex-col min-h-0">
       <Header
         title="Extras"
-        subtitle="Administra extras, bebidas, papas y acompañamientos"
+        subtitle="Administra extras, bebidas, guarniciones y entradas"
       />
 
       {/* FILTER BAR */}
@@ -170,10 +170,10 @@ export default function ExtrasPage() {
                   Bebidas
                 </TabsTrigger>
                 <TabsTrigger value="fries" className="rounded-full px-4 text-sm">
-                  Papas
+                  Guarniciones
                 </TabsTrigger>
                 <TabsTrigger value="sides" className="rounded-full px-4 text-sm">
-                  Acompañamientos
+                  Entradas
                 </TabsTrigger>
               </TabsList>
             </Tabs>
@@ -325,8 +325,8 @@ export default function ExtrasPage() {
                 <SelectContent>
                   <SelectItem value="extra">Extra</SelectItem>
                   <SelectItem value="drink">Bebida</SelectItem>
-                  <SelectItem value="fries">Papas</SelectItem>
-                  <SelectItem value="sides">Acompañamiento</SelectItem>
+                  <SelectItem value="fries">Guarnición</SelectItem>
+                  <SelectItem value="sides">Entrada</SelectItem>
                 </SelectContent>
               </Select>
             </div>

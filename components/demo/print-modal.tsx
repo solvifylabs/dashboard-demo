@@ -41,7 +41,7 @@ export function DemoPrintModal() {
         <div className="rounded-lg border bg-card p-4 font-mono text-xs space-y-2">
           {/* Header */}
           <div className="text-center space-y-0.5">
-            <div className="font-bold text-sm">HAMBURGUESERÍA DEMO</div>
+            <div className="font-bold text-sm">KIBO</div>
             <div className="text-muted-foreground text-[10px]">{dateLabel}</div>
           </div>
 

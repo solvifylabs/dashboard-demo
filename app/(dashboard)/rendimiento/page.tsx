@@ -431,11 +431,11 @@ export default function AnalyticsPage() {
             ) : (
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-5">
                 {[
-                  { label: "Burgers", value: productStats?.totalBurgers ?? 0, emoji: "🍔" },
+                  { label: "Rolls", value: productStats?.totalBurgers ?? 0, emoji: "🍣" },
                   { label: "Combos", value: productStats?.totalCombos ?? 0, emoji: "🎁" },
-                  { label: "Medallones", value: productStats?.totalMedallones ?? 0, emoji: "🥩" },
-                  { label: "Papas Fritas", value: productStats?.totalFries ?? 0, emoji: "🍟" },
-                  { label: "Acompañamientos", value: productStats?.totalSides ?? 0, emoji: "🍗" },
+                  { label: "Piezas", value: productStats?.totalMedallones ?? 0, emoji: "🍱" },
+                  { label: "Guarniciones", value: productStats?.totalFries ?? 0, emoji: "🥟" },
+                  { label: "Entradas", value: productStats?.totalSides ?? 0, emoji: "🥗" },
                 ].map((item) => (
                   <div
                     key={item.label}
@@ -668,7 +668,7 @@ export default function AnalyticsPage() {
                                     : "h-12 w-12 border-slate-400/40 text-2xl"
                                 }`}
                               >
-                                🍔
+                                🍣
                               </div>
                             )}
 
@@ -739,7 +739,7 @@ export default function AnalyticsPage() {
                               className="h-8 w-8 rounded-full object-cover"
                             />
                           ) : (
-                            <span className="text-xl">🍔</span>
+                            <span className="text-xl">🍣</span>
                           )}
                           <span className="flex-1 font-medium text-sm">
                             {burger.name}

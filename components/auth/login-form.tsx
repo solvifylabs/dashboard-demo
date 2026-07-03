@@ -49,13 +49,13 @@ export function LoginForm() {
     <Card className="w-full max-w-sm">
       <CardHeader className="items-center text-center gap-2">
         <Image
-          src="/Solvify.png"
-          alt="Logo"
+          src="/kibo.jpg"
+          alt="Kibo"
           width={56}
           height={56}
           className="rounded-full"
         />
-        <CardTitle>Solvify Dashboard</CardTitle>
+        <CardTitle>Kibo Dashboard</CardTitle>
         <CardDescription>Ingresá con tu cuenta</CardDescription>
       </CardHeader>
       <CardContent>

@@ -64,8 +64,8 @@ export function AppSidebar({ role }: { role?: "admin" | "operator" }) {
       <SidebarHeader className="pb-2">
         <div className="flex items-center gap-3 px-1 py-2 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:gap-0 group-data-[collapsible=icon]:px-0">
           <Image
-            src="/solvify-icon.jpg"
-            alt="Logo"
+            src="/kibo.jpg"
+            alt="Kibo"
             width={56}
             height={56}
             className="rounded-lg shrink-0 size-8 object-cover"
@@ -79,7 +79,7 @@ export function AppSidebar({ role }: { role?: "admin" | "operator" }) {
             )}
           >
             <span className={cn(baloo.className, "text-base font-bold tracking-wide whitespace-nowrap")}>
-              Dishflow
+              Kibo
             </span>
           </div>
         </div>
